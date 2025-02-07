@@ -1,21 +1,22 @@
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Main from "./components/Main";
-import ThemeProvider from "./context/ThemeProvider.jsx";
+import { useSelector } from "react-redux"
+import Counter from "./components/Counter";
+import Users from "./components/Users";
 
 
 const App = () => {
+  const { data } = useSelector(state => state.users);
 
   return (
-    <ThemeProvider>
-      <div className="container">
+    <div className="container">
+      <h1>REDUX TOOLKIT</h1>
 
-        <Header />
-        <Main />
-        <Footer />
+      <p>users count: {data.length}</p>
+      
+        <Counter />
 
-      </div>
-    </ThemeProvider>
+        <Users />
+
+    </div>
   )
 }
 
